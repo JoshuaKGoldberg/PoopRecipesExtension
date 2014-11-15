@@ -1,0 +1,22 @@
+{
+    "name": "Poop Recipes",
+    "version": "0.1",
+    "manifest_version": 2,
+
+    "description": "Turns your recipe websites into something... crappy.",
+
+    "content_scripts": [{
+        "run_at": "document_end",
+        "matches": [
+            "http://allrecipes.com/*",
+            "https://allrecipes.com/*"
+        ],
+        "js": [
+            "AllRecipes.js"
+        ]
+    }],
+
+    "permissions": [
+        "<all_urls>"
+    ]
+}
