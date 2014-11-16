@@ -1,0 +1,1 @@
+PoopRecipes.convertAllElements("[itemprop=ingredients] [itemprop=name]");

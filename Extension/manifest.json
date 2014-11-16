@@ -49,6 +49,15 @@
         "js": [
             "Yummly.js"
         ]
+    }, {
+        "matches": [
+            "http://www.chow.com/*",
+            "https://www.chow.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "Chow.js"
+        ]
     }],
 
     "permissions": [
