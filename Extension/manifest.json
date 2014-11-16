@@ -33,12 +33,12 @@
         ]
     }, {
         "matches": [
-            "http://www.food.com/*",
-            "https://www.food.com/*"
+            "http://www.thekitchn.com/*",
+            "https://www.thekitchn.com/*"
         ],
         "run_at": "document_end",
         "js": [
-            "Food.js"
+            "TheKitchn.js"
         ]
     }],
 
