@@ -31,6 +31,15 @@
         "js": [
             "FoodNetwork.js"
         ]
+    }, {
+        "matches": [
+            "http://www.food.com/*",
+            "https://www.food.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "Food.js"
+        ]
     }],
 
     "permissions": [
