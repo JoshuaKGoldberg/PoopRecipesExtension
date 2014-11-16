@@ -59,7 +59,7 @@ var PoopRecipes = (function (settings) {
         var innerText = element.innerText;
         
         if(typeof(splitter) !== undefined) {
-            innerText = splitter(innerText);
+            innerText = splitter(innerText, this.units);
         }
         
         element.innerText = this.getStringConverted(innerText);
@@ -83,6 +83,36 @@ var PoopRecipes = (function (settings) {
         }
         
         return this;
+    };
+    
+    /**
+     * Standard provided splitter function. Most websites that don't separate 
+     * ingredient names and amounts should be fine with this being used.
+     * 
+     * @param {String} string   The original innerText of an element.
+     * @return {String}   The amount prefix of the string, such as "2 cups."
+     */
+    PoopRecipes.prototype.splitterStandard = function (string, units) {
+        var stringSplit = string.split(" "),
+            unitsFirstFew = Math.min(string.length, 4)
+            i;
+        
+        // If any of the first words are units, return the preceding part
+        for(i = 0; i < unitsFirstFew; i += 1) {
+            if(units.hasOwnProperty(stringSplit[i])) {
+                return string.slice(0, i + 1).join(" ") + " ";
+            }
+        }
+        
+        // If there's a number, desperately go for that and the next word
+        for(i = 0; i < unitsFirstFew; i += 1) {
+            if(!isNaN(parseFloat(stringSplit[i]))) {
+                return stringSplit.slice(0, i + 2).join(" ") + " ";
+            }
+        }
+        
+        // No idea otherwise, screw it.
+        return " ";
     };
     
     return new PoopRecipes(settings);
@@ -115,5 +145,23 @@ var PoopRecipes = (function (settings) {
         "droppings",
         "dungs",
         "stool samples"
-    ]
+    ],
+    "units": {
+        "cup": undefined,
+        "cups": undefined,
+        "teaspoon": undefined,
+        "teaspoons": undefined,
+        "tablespoon": undefined,
+        "tablespoons": undefined,
+        "pinch": undefined,
+        "pinches": undefined,
+        "pound": undefined,
+        "pounds": undefined,
+        "ounce": undefined,
+        "ounces": undefined,
+        "bag": undefined,
+        "bags": undefined,
+        "scoop": undefined,
+        "scoops": undefined
+    }
 });
