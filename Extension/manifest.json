@@ -94,6 +94,15 @@
         "js": [
             "EatingWell.js"
         ]
+    }, {
+        "matches": [
+            "http://www.cooks.com/*",
+            "https://www.cooks.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "Cooks.js"
+        ]
     }],
 
     "permissions": [
