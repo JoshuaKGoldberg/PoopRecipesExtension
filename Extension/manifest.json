@@ -4,13 +4,21 @@
     "manifest_version": 2,
 
     "description": "Turns your recipe websites into something... crappy.",
-
+    
     "content_scripts": [{
-        "run_at": "document_end",
+        "matches": [
+            "<all_urls>"
+        ],
+        "run_at": "document_start",
+        "js": [
+            "PoopRecipes.js"
+        ]
+    }, {
         "matches": [
             "http://allrecipes.com/*",
             "https://allrecipes.com/*"
         ],
+        "run_at": "document_end",
         "js": [
             "AllRecipes.js"
         ]
