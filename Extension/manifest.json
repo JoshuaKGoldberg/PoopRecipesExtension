@@ -40,6 +40,15 @@
         "js": [
             "TheKitchn.js"
         ]
+    }, {
+        "matches": [
+            "http://www.yummly.com/*",
+            "https://www.yummly.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "Yummly.js"
+        ]
     }],
 
     "permissions": [
