@@ -103,6 +103,15 @@
         "js": [
             "Cooks.js"
         ]
+    }, {
+        "matches": [
+            "http://www.kraftrecipes.com/*",
+            "https://www.kraftrecipes.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "KraftRecipes.js"
+        ]
     }],
 
     "permissions": [

@@ -1,0 +1,1 @@
+PoopRecipes.convertAllElements(".ingredientNodeInner span, [itemprop=ingredients] .desc span");
