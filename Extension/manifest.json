@@ -85,6 +85,15 @@
         "js": [
             "MyRecipes.js"
         ]
+    }, {
+        "matches": [
+            "http://www.eatingwell.com/*",
+            "https://www.eatingwell.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "EatingWell.js"
+        ]
     }],
 
     "permissions": [
