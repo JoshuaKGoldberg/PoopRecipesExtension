@@ -22,6 +22,15 @@
         "js": [
             "AllRecipes.js"
         ]
+    }, {
+        "matches": [
+            "http://www.foodnetwork.com/*",
+            "https://www.foodnetwork.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "FoodNetwork.js"
+        ]
     }],
 
     "permissions": [

@@ -1,14 +1,16 @@
 var PoopRecipes = (function (settings) {
     
     /**
-     * Instantiates a new instance of a PoopRecipes object. The only stored
-     * data is the database Array of poop name Strings.
+     * Instantiates a new instance of a PoopRecipes object. 
      * 
-     * @param {Object} settings   The settings object used as arguments. The
-     *                            only required key is "database".                    
+     * @param {String[]} database   The Array of Strings to be used as random
+     *                              poopification ingredient names.
+     * @param {Object} units   A quick hash-table lookup of potential 
+     *                         ingredient units, such as "cup" or "cups".            
      */
     var PoopRecipes = function (settings) {
         this.database = settings["database"];
+        this.units = settings["units"];
     };
     
     /**
@@ -56,13 +58,15 @@ var PoopRecipes = (function (settings) {
      * @return {PoopRecipes} this
      */
     PoopRecipes.prototype.convertElement = function (element, splitter) {
-        var innerText = element.innerText;
+        var converted = this.getStringConverted(element.innerText);
         
-        if(typeof(splitter) !== undefined) {
-            innerText = splitter(innerText, this.units);
+        if(splitter) {
+            converted = splitter(element.innerText, this.units) + converted;
         }
         
-        element.innerText = this.getStringConverted(innerText);
+        console.log("Got some changes", element.innerText, converted);
+        
+        element.innerText = converted;
         
         return this;
     };
@@ -72,14 +76,19 @@ var PoopRecipes = (function (settings) {
      * 
      * @param {String} selector   A CSS selector to select all elements that
      *                            should have their .innerText "poopified."
+     * @param {Function} [splitter]   A Function that takes in a String and
+     *                                returns the prefix, such as "2 cups." 
+     *                                This is useful for sites that don't split
+     *                                ingredient amounts and names info 
+     *                                separate elements.
      * @return {PoopRecipes} this
      */
-    PoopRecipes.prototype.convertAllElements = function (selector) {
+    PoopRecipes.prototype.convertAllElements = function (selector, splitter) {
         var elements = document.querySelectorAll(selector),
             i;
         
         for(i = elements.length - 1; i >= 0; i -= 1) {
-            this.convertElement(elements[i]);
+            this.convertElement(elements[i], splitter);
         }
         
         return this;
@@ -93,21 +102,21 @@ var PoopRecipes = (function (settings) {
      * @return {String}   The amount prefix of the string, such as "2 cups."
      */
     PoopRecipes.prototype.splitterStandard = function (string, units) {
-        var stringSplit = string.split(" "),
-            unitsFirstFew = Math.min(string.length, 4)
+        var stringSplit = string.split(/[ ]+/),
+            unitsFirstFew = Math.min(string.length, 4),
             i;
         
         // If any of the first words are units, return the preceding part
         for(i = 0; i < unitsFirstFew; i += 1) {
             if(units.hasOwnProperty(stringSplit[i])) {
-                return string.slice(0, i + 1).join(" ") + " ";
+                return stringSplit.slice(0, i + 1).join(" ") + " ";
             }
         }
         
         // If there's a number, desperately go for that and the next word
         for(i = 0; i < unitsFirstFew; i += 1) {
             if(!isNaN(parseFloat(stringSplit[i]))) {
-                return stringSplit.slice(0, i + 2).join(" ") + " ";
+                return stringSplit.slice(0, i + 2) + " ";
             }
         }
         
