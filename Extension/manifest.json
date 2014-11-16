@@ -58,6 +58,15 @@
         "js": [
             "Chow.js"
         ]
+    }, {
+        "matches": [
+            "http://www.epicurious.com/*",
+            "https://www.epicurious.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "Epicurious.js"
+        ]
     }],
 
     "permissions": [
