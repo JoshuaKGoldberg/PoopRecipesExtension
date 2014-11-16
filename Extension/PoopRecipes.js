@@ -2,7 +2,7 @@ var PoopRecipes = (function (settings) {
     
     /**
      * Instantiates a new instance of a PoopRecipes object. The only stored
-     * data is the database Array of poop name strings.
+     * data is the database Array of poop name Strings.
      * 
      * @param {Object} settings   The settings object used as arguments. The
      *                            only required key is "database".                    
@@ -42,13 +42,28 @@ var PoopRecipes = (function (settings) {
     };
     
     /**
-     * "Poopifies" an element's .innerText.
+     * "Poopifies" an element's .innerText. If a splitter Function is provided, 
+     * the result will use the output of that Function on the original text 
+     * as a prefix.
      * 
-     * @param {HTMLElement} element
+     * @param {HTMLElement} element   The element whose innerText is to be 
+     *                                "poopified."
+     * @param {Function} [splitter]   A Function that takes in a String and
+     *                                returns the prefix, such as "2 cups." 
+     *                                This is useful for sites that don't split
+     *                                ingredient amounts and names info 
+     *                                separate elements.
      * @return {PoopRecipes} this
      */
-    PoopRecipes.prototype.convertElement = function (element) {
-        element.innerText = this.getStringConverted(element.innerText);
+    PoopRecipes.prototype.convertElement = function (element, splitter) {
+        var innerText = element.innerText;
+        
+        if(typeof(splitter) !== undefined) {
+            innerText = splitter(innerText);
+        }
+        
+        element.innerText = this.getStringConverted(innerText);
+        
         return this;
     };
     
