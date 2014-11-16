@@ -76,6 +76,15 @@
         "js": [
             "SimplyRecipes.js"
         ]
+    }, {
+        "matches": [
+            "http://www.myrecipes.com/*",
+            "https://www.myrecipes.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "MyRecipes.js"
+        ]
     }],
 
     "permissions": [

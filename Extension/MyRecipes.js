@@ -1,0 +1,1 @@
+PoopRecipes.convertAllElements("[itemprop=ingredient] [itemprop=name]", PoopRecipes.splitterStandard);
