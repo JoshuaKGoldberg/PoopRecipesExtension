@@ -67,6 +67,15 @@
         "js": [
             "Epicurious.js"
         ]
+    }, {
+        "matches": [
+            "http://www.simplyrecipes.com/*",
+            "https://www.simplyrecipes.com/*"
+        ],
+        "run_at": "document_end",
+        "js": [
+            "SimplyRecipes.js"
+        ]
     }],
 
     "permissions": [
