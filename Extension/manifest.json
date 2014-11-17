@@ -26,7 +26,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "AllRecipes.js"
+            "Sites/AllRecipes.js"
         ]
     }, {
         "matches": [
@@ -35,7 +35,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "FoodNetwork.js"
+            "Sites/FoodNetwork.js"
         ]
     }, {
         "matches": [
@@ -44,7 +44,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "TheKitchn.js"
+            "Sites/TheKitchn.js"
         ]
     }, {
         "matches": [
@@ -53,7 +53,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "Yummly.js"
+            "Sites/Yummly.js"
         ]
     }, {
         "matches": [
@@ -62,7 +62,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "Chow.js"
+            "Sites/Chow.js"
         ]
     }, {
         "matches": [
@@ -71,7 +71,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "Epicurious.js"
+            "Sites/Epicurious.js"
         ]
     }, {
         "matches": [
@@ -80,7 +80,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "SimplyRecipes.js"
+            "Sites/SimplyRecipes.js"
         ]
     }, {
         "matches": [
@@ -89,7 +89,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "MyRecipes.js"
+            "Sites/MyRecipes.js"
         ]
     }, {
         "matches": [
@@ -98,7 +98,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "EatingWell.js"
+            "Sites/EatingWell.js"
         ]
     }, {
         "matches": [
@@ -107,7 +107,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "Cooks.js"
+            "Sites/Cooks.js"
         ]
     }, {
         "matches": [
@@ -116,7 +116,7 @@
         ],
         "run_at": "document_end",
         "js": [
-            "KraftRecipes.js"
+            "Sites/KraftRecipes.js"
         ]
     }],
 
