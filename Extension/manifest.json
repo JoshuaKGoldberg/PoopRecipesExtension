@@ -5,6 +5,12 @@
 
     "description": "Turns your recipe websites into something... crappy.",
     
+    "icons": { 
+        "16": "Icon/Icon16.png",
+        "64": "Icon/Icon64.png",
+        "128": "Icon/Icon128.png"
+    },
+    
     "content_scripts": [{
         "matches": [
             "<all_urls>"
