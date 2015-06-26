@@ -153,7 +153,8 @@ var PoopRecipes = (function (settings) {
         "doodies",
         "droppings",
         "dungs",
-        "stool samples"
+        "stool samples",
+        "quesadilla butt torpedos"
     ],
     "units": {
         "cup": undefined,
